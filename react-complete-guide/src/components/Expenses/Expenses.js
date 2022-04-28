@@ -1,6 +1,6 @@
 import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
-import "../../style/Expenses/Expenses.css";
+import "../../style/Expenses/Expenses.scss";
 
 const Expenses = (props) => {
   const expensesList = props.items.map((expenseItem, index) => {
