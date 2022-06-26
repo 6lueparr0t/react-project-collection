@@ -6,6 +6,7 @@ const ExpenseForm = (props) => {
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
 
+  // useState 에서 object 를 사용하는 경우
   // const [userInput, setUserInput] = useState({
   //   enteredTitle : '',
   //   enteredAmount : '',
@@ -42,7 +43,7 @@ const ExpenseForm = (props) => {
 
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
 
