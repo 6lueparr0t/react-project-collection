@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Button from "../../UI/Button/Button";
 import styles from "./CourseInput.module.css";
 
+// styled components 사용한 표현식
 // const FormControl = styled.div`
 //   margin: 0.5rem 0;
 
@@ -17,6 +18,8 @@ import styles from "./CourseInput.module.css";
 //   & input {
 //     display: block;
 //     width: 100%;
+
+//     ${} 동적 Props
 //     border: 1px solid ${props => (props.invalid ? 'red' : '#ccc')};
 //     background: ${props => (props.invalid ? '#ffd7d7' : 'transparent')}
 //     font: inherit;

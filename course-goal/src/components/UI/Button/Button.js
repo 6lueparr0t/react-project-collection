@@ -12,6 +12,7 @@ import styles from './Button.module.css'
 //   box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
 //   cursor: pointer;
 
+//   미디어 쿼리
 //   @media (min-width: 768px) {
 //     width: 100%;
 //   }
