@@ -20,10 +20,10 @@ function App() {
   }
 
   return (
-    <div>
+    <>
       <AddIngredient onAddIngredient={addIngredientHandler} />
       <IngredientsList ingredients={ingredientsList} onDeleteIngredient={deleteIngredientHandler}/>
-    </div>
+    </>
   );
 }
 

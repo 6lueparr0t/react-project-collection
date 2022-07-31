@@ -55,7 +55,7 @@ const AddIngredient = (props) => {
   };
 
   return (
-    <div>
+    <>
       {error && (
         <ErrorModal
           title={error.title}
@@ -84,7 +84,7 @@ const AddIngredient = (props) => {
           <Button type="submit">재료 추가</Button>
         </form>
       </Card>
-    </div>
+    </>
   );
 };
 
