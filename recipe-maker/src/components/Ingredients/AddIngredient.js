@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Card from "../UI/Card";
 import Button from "../UI/Button";
 import ErrorModal from "../UI/ErrorModal";
+// import Wrapper from "../Helper/Wrapper";
 import classes from "./AddIngredient.module.scss";
 
 const AddIngredient = (props) => {
