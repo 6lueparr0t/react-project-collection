@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect, useReducer, useContext } from "react";
 
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
+import AuthContext from "../../store/auth-context"
 
 const emailReducer = (state, action) => {
   switch (action.type) {
@@ -50,6 +51,8 @@ const Login = (props) => {
     value: "",
     isValid: true,
   });
+
+  const authCtx = useContext(AuthContext)
 
   // enteredPassword 가 변경될 경우에만 실행된다.
   // enteredPassword 에 의존성을 갖는다.
@@ -102,7 +105,7 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onLogin(emailState.value, passwordState.value);
+    authCtx.onLogin(emailState.value, passwordState.value);
   };
 
   return (
