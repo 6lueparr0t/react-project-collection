@@ -4,4 +4,18 @@
   margin: 2rem auto;
   width: 50rem;
   max-width: 95%;
+  color: white;
+}
+
+.expenses__control {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.expenses label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
