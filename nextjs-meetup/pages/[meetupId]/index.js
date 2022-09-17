@@ -38,7 +38,8 @@ export async function getStaticPaths() {
   client.close();
 
   return {
-    fallback: true,
+    // fallback: true, //다른 meetupId 가 있을 때, 동적으로 생성한다. 즉시 빈 페이지를 반환하고 콘텐츠가 동적으로 생성되면 띄운다.
+    fallback: 'blocking', // 사용자는 아무것도 볼 수 없고 완성된 페이지만 제공된다.
     paths: meetups.map((meetup) => ({
       params: {
         meetupId: meetup._id.toString(),
@@ -47,7 +48,7 @@ export async function getStaticPaths() {
   };
 
   // return {
-  //   fallback: false,
+  //   fallback: false, //아래의 paths만 동적 생성을 허용한다.
   //   paths: [
   //     {
   //       params: {
