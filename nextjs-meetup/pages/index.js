@@ -1,3 +1,4 @@
+// import { useState, useEffect } from "react";
 import MeetupList from "../components/meetups/MeetupList";
 
 const DUMMY_MEETUPS = [
@@ -19,8 +20,44 @@ const DUMMY_MEETUPS = [
   },
 ];
 
-function HomePage() {
-  return <MeetupList meetups={DUMMY_MEETUPS} />;
+function HomePage(props) {
+  // 사전 렌더링 되므로 필요없다.
+  // const [loadedMeetups, setLoadedMeetups] = useState([]);
+
+  // useEffect(() => {
+  //   // send a http request and fetch data
+  //   setLoadedMeetups(DUMMY_MEETUPS);
+  // }, []);
+
+  // return <MeetupList meetups={loadedMeetups} />;
+  return <MeetupList meetups={props.meetups} />;
+}
+
+// 매 요청마다 페이지를 생성한다.
+// export async function getServerSideProps(context) {
+//   const req = context.req;
+//   const res = context.res;
+
+//   // fetch data from an API
+
+//   return {
+//     props: {
+//       meetups: DUMMY_MEETUPS
+//     }
+//   };
+// }
+
+export async function getStaticProps() {
+  // fetch data from an API
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS
+    },
+    revalidate:10
+    // revalidate:1(1초)
+    // revalidate:10(10초)
+    // revalidate:3600(1시간)
+  };
 }
 
 export default HomePage;
