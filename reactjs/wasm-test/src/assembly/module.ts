@@ -23,3 +23,7 @@ export function instanceSub(a: f32, b: f32): f32 {
   let animal = new Animal<f32>();
   return animal.instanceSub<f32>(a, b);
 }
+
+export function helloWorld(): string {
+  return "Hello, World! Hello, AssemblyScript!";
+}
