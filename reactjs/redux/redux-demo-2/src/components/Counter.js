@@ -1,5 +1,11 @@
-import { Component } from "react";
-import { useDispatch, useSelector, connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+/**
+ * 클래스 기반 사용 시
+ */
+// import { Component } from "react";
+// import { connect } from "react-redux";
+
 import classes from "./Counter.module.css";
 
 const Counter = () => {
