@@ -1,3 +1,6 @@
+/**
+ * src/index 에서 호출
+ */
 // import { legacy_createStore as createStore} from 'redux'
 import { configureStore } from '@reduxjs/toolkit'
 

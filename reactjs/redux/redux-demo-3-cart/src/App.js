@@ -1,3 +1,4 @@
+// useSelector : store 의 state 를 가져올 때 사용
 import { useSelector } from 'react-redux';
 import Cart from './components/Cart/Cart';
 import Layout from './components/Layout/Layout';
