@@ -25,9 +25,12 @@ import HomePage from "../src/pages/Home";
 import EventsPage, { loader as eventsLoader } from "../src/pages/Events";
 import EventDetailPage, {
   loader as eventDetailLoader,
+  action as deleteEventAction,
 } from "../src/pages/EventDetail";
-import NewEventPage, { action as newEventAction} from "../src/pages/NewEvent";
-import EditEventPage from "../src/pages/EditEvent";
+import NewEventPage, { action as newEventAction } from "../src/pages/NewEvent";
+import EditEventPage, {
+  action as editEventAction,
+} from "../src/pages/EditEvent";
 import RootLayout from "../src/pages/Root";
 import EventRootLayout from "./pages/EventRoot";
 import Error from "./pages/Error";
@@ -46,17 +49,22 @@ const router = createBrowserRouter([
           { index: true, element: <EventsPage />, loader: eventsLoader },
           {
             path: ":eventId",
-            id: 'event-detail',
+            id: "event-detail",
             loader: eventDetailLoader,
             children: [
               {
                 index: true,
                 element: <EventDetailPage />,
+                action: deleteEventAction,
               },
-              { path: "edit", element: <EditEventPage /> },
+              {
+                path: "edit",
+                element: <EditEventPage />,
+                action: editEventAction,
+              },
             ],
           },
-          { path: "new", element: <NewEventPage />, action: newEventAction},
+          { path: "new", element: <NewEventPage />, action: newEventAction },
         ],
       },
     ],

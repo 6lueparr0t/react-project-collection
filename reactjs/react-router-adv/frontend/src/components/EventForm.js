@@ -1,15 +1,25 @@
-import { Form, useNavigate } from "react-router-dom";
+import { Form, useNavigate, useNavigation, useActionData } from "react-router-dom";
 
 import classes from "./EventForm.module.css";
 
 function EventForm({ method, event }) {
-  const navigate = useNavigate();
+  const data = useActionData(); // action 에서 리턴한 데이터에 액세스 가능한 hook
+  const navigate = useNavigate(); // 페이지 이동 hook
+  const navigation = useNavigation(); // 제출된 데이터에 대한 추출, 페이지 이동 상태 hook
+
+  const isSubmitting = navigation.state === "submitting";
+
   function cancelHandler() {
     navigate("..");
   }
 
   return (
     <Form method="post" className={classes.form}>
+      {data && data.errors && <ul>
+        {Object.values(data.errors).map(err => <li key={err}>
+          {err}
+        </li>)}
+        </ul>}
       <p>
         <label htmlFor="title">Title</label>
         <input
@@ -51,10 +61,12 @@ function EventForm({ method, event }) {
         />
       </p>
       <div className={classes.actions}>
-        <button type="button" onClick={cancelHandler}>
+        <button type="button" onClick={cancelHandler} disabled={isSubmitting}>
           Cancel
         </button>
-        <button>Save</button>
+        <button disabled={isSubmitting}>
+          {isSubmitting ? "Submitting..." : "Save"}
+        </button>
       </div>
     </Form>
   );
