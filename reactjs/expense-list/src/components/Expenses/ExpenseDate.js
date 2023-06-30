@@ -12,6 +12,8 @@ const ExpenseDate = (props) => {
   const day = props.date.toLocaleString('en-US', {day: '2-digit'});
   // const day = props.date.getDate();
 
+  // new Date().toISOString().slice(0, 10).replace(/-/g, "/"); // '2023/06/30'
+
   return (
     <div className="expense-date">
       <div className="expense-date__year">{year}년</div>
