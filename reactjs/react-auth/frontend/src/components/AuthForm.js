@@ -10,6 +10,8 @@ function AuthForm() {
   const isLogin = searchPrams.get("mode") === "login";
   const isSubmitting = navigation.state === "submitting";
 
+  const requestType = isLogin ? "Login" : "Sign Up";
+
   return (
     <>
       <Form method="post" className={classes.form}>
@@ -31,10 +33,12 @@ function AuthForm() {
           <input id="password" type="password" name="password" required />
         </p>
         <div className={classes.actions}>
+          {/* 현재 상태 login => signup 링크 */}
+          {/* 현재 상태 signup => login 링크 */}
           <Link to={`?mode=${isLogin ? "signup" : "login"}`}>
             {isLogin ? "Create new user" : "Login"}
           </Link>
-          <button disabled={isSubmitting}>{isSubmitting ? "Submitting..." : "Save"}</button>
+          <button disabled={isSubmitting}>{isSubmitting ? "Submitting..." : requestType}</button>
         </div>
       </Form>
     </>
