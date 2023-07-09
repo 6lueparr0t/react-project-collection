@@ -17,8 +17,8 @@ export const action = async({request}) => {
   }
   const data = await request.formData();
   const authData = {
-    email: data.get('email'),
-    password: data.get('password'),
+    email: data.get('email'), // test@test.com
+    password: data.get('password'), // test1230
   }
 
   const response = await fetch(`http://localhost:8080/${mode}`, {
@@ -36,6 +36,11 @@ export const action = async({request}) => {
   if (!response.ok) {
     throw json({message: "Could not authenticate user."}, {status : 500});
   }
+
+  const resData = await response.json();
+  const token = resData.token;
+
+  localStorage.setItem('token', token);
 
   // soon: manage that token
   return redirect("/");
