@@ -1,3 +1,6 @@
+/**
+ * Lazy Loading 을 사용한 모듈 불러오기
+ */
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
