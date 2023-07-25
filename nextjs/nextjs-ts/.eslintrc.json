@@ -1,3 +1,53 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+      "commonjs"  : true,
+      "es6"       : true,
+      "node"      : true,
+      "mocha"     : true
+  },
+  "extends": ["next/core-web-vitals", "eslint:recommended", "google", "react-hooks"],
+  "globals": {
+      "Atomics"           : "readonly",
+      "SharedArrayBuffer" : "readonly"
+  },
+  "parserOptions"     : {
+      "ecmaVersion"   : 2018,
+      "parser"        : "babel-eslint"
+  },
+  "rules": {
+      "indent"                      : "off",                        // 들여쓰기
+      "key-spacing"                 : "off",                        // 키 간격
+      "no-multi-spaces"             : "off",                        // 다중 공간 없음
+      "object-curly-spacing"        : "off",                        // 개체 간격
+      "array-bracket-spacing"       : "off",                        // 배열 간격
+      "padded-blocks"               : "off",                        // 패딩 블록
+      "comma-dangle"                : "off",                        // 마지막 쉼표
+      "new-cap"                     : "off",                        // 함수 사용 new 키워드
+      "no-unused-vars"              : "off",                        // 사용하지 않는 선언
+      "no-trailing-spaces"          : "off",
+      "require-jsdoc"               : "off",
+      "no-undef"                    : "off",
+      "semi"                        : "never",
+      "@typescript-eslint/semi"     : "error",
+      "no-multiple-empty-lines"     : ["error", {"max" : 10}],      // 여러 개의 빈 줄 없음
+      "max-len"                     : ["error", {"code": 1000}],    // 최대 길이
+      "linebreak-style"             : [0, "error", "unix"],         // 줄 바꿈 스타일
+      "quotes"                      : ["error", "double"],          // 문자열은 double quotation https://eslint.org/docs/latest/rules/quotes
+      "react-hooks/rules-of-hooks"  : "error",
+      "react-hooks/exhaustive-deps" : "warn"
+  }
 }
+
+/*
+  [적용]
+  vscode 확장 : ESLint 설치
+  터미널 입력 : npm install -dev eslint eslint-config-google
+
+  [개행문자 처리 방식]
+  - LF 설정 사용
+  - windows
+  git config --global core.autocrlf true
+
+  - mac, linux
+  git config --global core.autocrlf input
+*/
