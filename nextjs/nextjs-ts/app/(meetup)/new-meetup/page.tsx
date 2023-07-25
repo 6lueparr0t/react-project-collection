@@ -8,8 +8,10 @@ export default function Page() {
   const router = useRouter();
 
   const addMeetupHandler = async() => {
+    // Reference : https://nextjs.org/docs/app/building-your-application/routing/router-handlers
     const response = await fetch('/api/test', {
-      method: 'GET',
+      method: 'GET', // POST
+      // body: JSON.stringify(enteredMeetupData),
       headers: {
         'Content-Type': 'application/json',
       },
