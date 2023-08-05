@@ -38,22 +38,25 @@ class App extends Component {
           timeout={1000}
           mountOnEnter
           unmountOnExit
-          onEnter={() => console.log('onEnter')}
-          onEntering={() => console.log('onEntering')}
-          onEntered={() => console.log('onEntered')}
-          onExit={() => console.log('onExit')}
-          onExiting={() => console.log('onExiting')}
-          onExited={() => console.log('onExited')}
-          >
-            {state => <div style={{
-              backgroundColor: "red",
-              width: 100,
-              height: 100,
-              margin: "auto",
-              transition: "opacity 1s",
-              opacity: state === 'entered' ? 1 : 0
-            }}
-          />}
+          onEnter={() => console.log("onEnter")}
+          onEntering={() => console.log("onEntering")}
+          onEntered={() => console.log("onEntered")}
+          onExit={() => console.log("onExit")}
+          onExiting={() => console.log("onExiting")}
+          onExited={() => console.log("onExited")}
+        >
+          {(state) => (
+            <div
+              style={{
+                backgroundColor: "red",
+                width: 100,
+                height: 100,
+                margin: "auto",
+                transition: "opacity 1s",
+                opacity: state === "entered" ? 1 : 0,
+              }}
+            />
+          )}
         </Transition>
         <Modal show={this.state.modalIsOpen} closed={this.closeModal} />
         {this.state.modalIsOpen ? (
