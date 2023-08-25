@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import { StyleSheet, Text, View, Button, TextInput, ScrollView } from "react-native";
 
 export default function App() {
   const goalInputRef = useRef<TextInput>(null);
@@ -32,13 +32,15 @@ export default function App() {
       </View>
       <View style={styles.goalsContainer}>
         {/* <Text>List of goals...</Text> */}
-        {courseGoals.map((goal, i) => (
-          <View style={styles.goalItem} key={i}>
-            <Text style={styles.goalText}>
-              {goal}
-            </Text>
-          </View>
-        ))}
+        <ScrollView alwaysBounceVertical={false}>
+          {courseGoals.map((goal, i) => (
+            <View style={styles.goalItem} key={i}>
+              <Text style={styles.goalText}>
+                {goal}
+              </Text>
+            </View>
+          ))}
+        </ScrollView>
       </View>
     </View>
   );
