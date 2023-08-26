@@ -1,10 +1,20 @@
 import React, { useRef, useState } from "react";
-import { StyleSheet, Text, View, Button, TextInput, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TextInput,
+  ScrollView,
+  FlatList,
+} from "react-native";
 
 export default function App() {
   const goalInputRef = useRef<TextInput>(null);
   const [enteredGoalText, setEneteredGoalText] = useState<string>("");
-  const [courseGoals, setCourseGoals] = useState<string[]>([]);
+  const [courseGoals, setCourseGoals] = useState<
+    { text: string; id: string }[]
+  >([]);
 
   function goalInputHandler(enteredText: string): void {
     setEneteredGoalText(enteredText);
@@ -14,8 +24,9 @@ export default function App() {
     // console.log(enteredGoalText);
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
-      enteredGoalText,
+      { text: enteredGoalText, id: Math.random().toString() },
     ]);
+    setEneteredGoalText("");
     goalInputRef.current?.clear();
   }
 
@@ -32,7 +43,7 @@ export default function App() {
       </View>
       <View style={styles.goalsContainer}>
         {/* <Text>List of goals...</Text> */}
-        <ScrollView alwaysBounceVertical={false}>
+        {/* <ScrollView alwaysBounceVertical={false}>
           {courseGoals.map((goal, i) => (
             <View style={styles.goalItem} key={i}>
               <Text style={styles.goalText}>
@@ -40,7 +51,21 @@ export default function App() {
               </Text>
             </View>
           ))}
-        </ScrollView>
+        </ScrollView> */}
+        <FlatList
+          alwaysBounceVertical={false}
+          data={courseGoals}
+          renderItem={(itemData) => {
+            return (
+              <View style={styles.goalItem}>
+                <Text style={styles.goalText}>{itemData.item.text}</Text>
+              </View>
+            );
+          }}
+          keyExtractor={(item, index) => {
+            return item.id
+          }}
+        />
       </View>
     </View>
   );
@@ -80,5 +105,5 @@ const styles = StyleSheet.create({
   },
   goalText: {
     color: "#ffffff",
-  }
+  },
 });
