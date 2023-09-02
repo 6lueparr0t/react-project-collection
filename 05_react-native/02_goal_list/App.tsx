@@ -5,46 +5,54 @@ import {
   Button,
   TextInput,
   FlatList,
-  GestureResponderEvent
+  GestureResponderEvent,
 } from "react-native";
 
 import GoalInput from "./components/GoalInput";
 import GoalItem from "./components/GoalItem";
+
+interface Goal {
+  id: string;
+  text: string;
+}
 
 export default function App() {
   const [courseGoals, setCourseGoals] = useState<
     { text: string; id: string }[]
   >([]);
 
-  function addGoalHandler(enteredGoalText:string): void {
+  function addGoalHandler(enteredGoalText: string): void {
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
       { text: String(enteredGoalText), id: Math.random().toString() },
     ]);
   }
 
+  function deleteGoalHandler(id : string) {
+    // console.log("DELETE");
+    setCourseGoals((currentCourseGoals) => {
+      return currentCourseGoals.filter((goal : Goal) => goal.id !== id);
+    });
+  }
+
   return (
     <View style={styles.appContainer}>
-      <GoalInput onAddGoal={addGoalHandler}/>
+      <GoalInput onAddGoal={addGoalHandler} />
       <View style={styles.goalsContainer}>
-        {/* <Text>List of goals...</Text> */}
-        {/* <ScrollView alwaysBounceVertical={false}>
-          {courseGoals.map((goal, i) => (
-            <View style={styles.goalItem} key={i}>
-              <Text style={styles.goalText}>
-                {goal}
-              </Text>
-            </View>
-          ))}
-        </ScrollView> */}
         <FlatList
           alwaysBounceVertical={false}
           data={courseGoals}
           renderItem={(itemData) => {
-            return <GoalItem text={itemData.item.text} />;
+            return (
+              <GoalItem
+                text={itemData.item.text}
+                id={itemData.item.id}
+                onDeleteItem={deleteGoalHandler}
+              />
+            );
           }}
           keyExtractor={(item, index) => {
-            return item.id
+            return item.id;
           }}
         />
       </View>

@@ -16,7 +16,11 @@ const GoalInput: React.FC<{onAddGoal : (enteredGoalText:string) => void}> = (pro
     setEneteredGoalText(enteredText);
   }
 
-  function addGoalHandler() {
+  /**
+   * 목록에 추가하고 입력 창을 초기화
+   */
+  function addGoalHandler(event: GestureResponderEvent) {
+    // event.preventDefault();
     props.onAddGoal(enteredGoalText);
     setEneteredGoalText("");
     goalInputRef.current?.clear();
