@@ -4,7 +4,8 @@ import { StyleSheet } from "react-native";
 
 const GoalItem: React.FC<{ id: string, text: string, onDeleteItem:(id:string)=>void }> = (props) => {
   return (
-    <Pressable onPress={props.onDeleteItem.bind(this, props.id)}>
+    <Pressable android_ripple={{color:"#ffffff"}} onPress={props.onDeleteItem.bind(this, props.id)}
+    style={({pressed}) => pressed && styles.pressedItem}>
       <View style={styles.goalItem}>
         <Text style={styles.goalText}>{props.text}</Text>
       </View>
@@ -19,9 +20,13 @@ const styles = StyleSheet.create({
     margin: 8,
     padding: 8,
     borderRadius: 6,
-    backgroundColor: "#2240d7",
+    backgroundColor: "#051c40",
+  },
+  pressedItem: {
+    opacity: 0.5,
   },
   goalText: {
     color: "#ffffff",
+    padding: 4,
   },
 });
