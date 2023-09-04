@@ -43,10 +43,10 @@ const GoalInput: React.FC<{
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Cancel" onPress={props.onCancel} color="#E53935"/>
+            <Button title="Cancel" onPress={props.onCancel} color="#EF5350"/>
           </View>
           <View style={styles.button}>
-            <Button title="Add Goal" onPress={addGoalHandler} color="#9eb5d9"/>
+            <Button title="Add Goal" onPress={addGoalHandler} color="#91cbf9"/>
           </View>
         </View>
       </View>
