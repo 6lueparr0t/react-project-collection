@@ -1,5 +1,5 @@
 {
-  "name": "02_goal_list",
+  "name": "goal_list",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {

@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Button, FlatList } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 import GoalInput from "./components/GoalInput";
@@ -41,13 +47,11 @@ export default function App() {
 
   return (
     <>
-      <StatusBar style="auto"/>
+      <StatusBar style="auto" />
       <View style={styles.appContainer}>
-        <Button
-          title="Add New Goal"
-          color={styles.button.color}
-          onPress={startAddGoalHandler}
-        />
+        <TouchableOpacity onPress={startAddGoalHandler} style={styles.button}>
+          <Text style={styles.text}>Add New Item</Text>
+        </TouchableOpacity>
         <GoalInput
           visible={modalIsVisible}
           onAddGoal={addGoalHandler}
@@ -81,9 +85,15 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 50,
     paddingHorizontal: 16,
+    backgroundColor: "#0D47A1",
   },
   button: {
-    color: "#E8EAF6",
+    alignItems: 'center',
+    padding: 10,
+  },
+  text: {
+    color:"#fff",
+    fontSize:20,
   },
   goalsContainer: {
     flex: 5,

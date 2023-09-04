@@ -46,7 +46,7 @@ const GoalInput: React.FC<{
             <Button title="Cancel" onPress={props.onCancel} color="#EF5350"/>
           </View>
           <View style={styles.button}>
-            <Button title="Add Goal" onPress={addGoalHandler} color="#91cbf9"/>
+            <Button title="Add" onPress={addGoalHandler} color="#91cbf9"/>
           </View>
         </View>
       </View>
