@@ -1,12 +1,11 @@
 {
   "expo": {
-    "name": "goal_list",
-    "slug": "goal_list",
+    "name": "guess-my-number",
+    "slug": "guess-my-number",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "backgroundColor": "#0D47A1",
-    "userInterfaceStyle": "dark",
+    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
