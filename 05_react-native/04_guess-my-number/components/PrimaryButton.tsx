@@ -1,17 +1,18 @@
 import React, { PropsWithChildren, ReactNode } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 
-// interface PrimaryButton extends PropsWithChildren {
-//   text: string;
-// }
+interface PrimaryButtonProps extends PropsWithChildren {
+  text?: string;
+  onPress?: () => void;
+}
 
-const PrimaryButton: React.FC<PropsWithChildren & { text?: string }> = (
-  props
-) => {
-  const { children }: { children?: React.ReactNode; } = props;
-  function pressHandler() {
-    console.log("Pressed!");
-  }
+// const PrimaryButton: React.FC< PropsWithChildren & { onPress?: () => void } > = (props) => {
+const PrimaryButton: React.FC<PrimaryButtonProps> = (props) => {
+  const { children, onPress }: PrimaryButtonProps = props;
+
+  // function pressHandler() {
+  //   console.log("Pressed!");
+  // }
 
   return (
     <View style={styles.buttonOuterContainer}>
@@ -21,7 +22,7 @@ const PrimaryButton: React.FC<PropsWithChildren & { text?: string }> = (
             ? [styles.buttonInnerContainer, styles.pressed]
             : styles.buttonInnerContainer
         }
-        onPress={pressHandler}
+        onPress={onPress}
         android_ripple={{ color: "#640233" }}
       >
         <Text style={styles.buttonText}>{children}</Text>
@@ -37,6 +38,7 @@ const styles = StyleSheet.create({
     borderRadius: 28,
     margin: 4,
     overflow: "hidden",
+    width: "100%",
   },
   buttonInnerContainer: {
     backgroundColor: "#72063c",
