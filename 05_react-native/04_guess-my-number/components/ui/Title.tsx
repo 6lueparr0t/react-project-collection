@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import { Text, StyleSheet } from "react-native";
 
-import Colors from "../constants/Colors";
+import Colors from "../../constants/Colors";
 
 const Title: React.FC<PropsWithChildren> = ({ children }) => {
   return <Text style={styles.title}>{children}</Text>;

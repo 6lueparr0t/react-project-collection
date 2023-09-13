@@ -1,6 +1,6 @@
-import React, { PropsWithChildren, ReactNode } from "react";
+import React, { PropsWithChildren } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
-import Colors from "../constants/Colors";
+import Colors from "../../constants/Colors";
 
 interface PrimaryButtonProps extends PropsWithChildren {
   text?: string;
