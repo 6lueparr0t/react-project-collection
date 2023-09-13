@@ -9,7 +9,7 @@ const StartGameScreen: React.FC<{
 }> = ({onPickNumber}) => {
   const [enteredNumber, setEnteredNumber] = useState<string>("");
 
-  function numberInputHandler(enteredText: string): void {
+  function numberInputHandler(enteredText: string) {
     setEnteredNumber(enteredText);
   }
 
@@ -17,7 +17,7 @@ const StartGameScreen: React.FC<{
     setEnteredNumber("");
   }
 
-  function confirmInputHandler(): void {
+  function confirmInputHandler() {
     const chosenNumber = parseInt(enteredNumber);
 
     if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
@@ -89,6 +89,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 1,
-    marginHorizontal: 6,
+    marginHorizontal: 8,
   },
 });
