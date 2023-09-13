@@ -1,10 +1,10 @@
 import React, { PropsWithChildren } from "react";
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { View, Text, Pressable, StyleSheet, GestureResponderEvent } from "react-native";
 import Colors from "../../constants/Colors";
 
 interface PrimaryButtonProps extends PropsWithChildren {
   text?: string;
-  onPress?: () => void;
+  onPress?: (event:GestureResponderEvent) => void;
 }
 
 // const PrimaryButton: React.FC< PropsWithChildren & { onPress?: () => void } > = (props) => {
