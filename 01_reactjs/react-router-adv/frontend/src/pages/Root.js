@@ -4,14 +4,15 @@ import MainNavigation from "../components/MainNavigation";
 
 const RootLayout = () => {
   const navigation = useNavigation();
-  return <>
-  <MainNavigation />
-  <main>
-    {/* idle / loading / submitting */}
-    {navigation.state === "loading" && <p>Loading ... </p>}
-    <Outlet />
-  </main>
-  </>
-}
+  return (
+    <>
+      <MainNavigation />
+      <main>
+        {/* {navigation.state === "loading" && <p style={{ textAlign: "center" }}>Loading ... </p>} */}
+        <Outlet />
+      </main>
+    </>
+  );
+};
 
 export default RootLayout;
