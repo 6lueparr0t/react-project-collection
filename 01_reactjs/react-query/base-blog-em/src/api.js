@@ -1,8 +1,12 @@
 export async function fetchPosts(pageNum = 1) {
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${pageNum}`
-  );
-  return response.json();
+  try {
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${pageNum}`
+    );
+    return response.json();
+  } catch (error) {
+    throw new Error("You cannot have this data!");
+  }
 }
 
 export async function fetchComments(postId) {
