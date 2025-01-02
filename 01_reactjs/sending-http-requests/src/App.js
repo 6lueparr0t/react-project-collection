@@ -11,7 +11,7 @@ function App() {
 
   const fetchMoviesHandler = useCallback(async () => {
     setIsLoading(true);
-    // fetch("https://swapi.dev/api/films/")
+    // fetch("https://swapi.py4e.com/api/films/")
     //   .then((response) => {
     //     return response.json();
     //   })
@@ -30,7 +30,7 @@ function App() {
     // .then 을 체이닝 메소드 형식으로 쓸 수도 있지만
     // async / await 으로 쓰게 될 경우 코드가 좀 더 읽기 쉬워진다.
     try {
-      // const response = await fetch("https://swapi.dev/api/films/");
+      // const response = await fetch("https://swapi.py4e.com/api/films/");
       // firebase-endpoint : https://console.firebase.google.com 에서 Realtime Database 확인
       const response = await fetch("https://firebase-endpoint/movies.json");
       if (!response.ok) {
