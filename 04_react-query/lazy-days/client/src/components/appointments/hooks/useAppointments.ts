@@ -1,7 +1,7 @@
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 
-import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { AppointmentDateMap } from "../types";
 import { getAvailableAppointments } from "../utils";
 import { getMonthYearDetails, getNewMonthYear } from "./monthYear";
