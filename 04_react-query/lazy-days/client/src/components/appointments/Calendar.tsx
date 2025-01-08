@@ -1,11 +1,4 @@
-import {
-  Box,
-  Checkbox,
-  Grid,
-  Heading,
-  HStack,
-  IconButton,
-} from "@chakra-ui/react";
+import { Box, Checkbox, Grid, Heading, HStack, IconButton } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import { TiArrowLeftThick, TiArrowRightThick } from "react-icons/ti";
 
@@ -17,8 +10,7 @@ import { UserAppointments } from "@/components/user/UserAppointments";
 export function Calendar() {
   const currentDate = dayjs();
 
-  const { appointments, monthYear, updateMonthYear, showAll, setShowAll } =
-    useAppointments();
+  const { appointments, monthYear, updateMonthYear, showAll, setShowAll } = useAppointments();
 
   return (
     <Box>
@@ -51,16 +43,10 @@ export function Calendar() {
       </HStack>
       <Grid templateColumns="repeat(7, 1fr)" gap={4} my={5} mx={10}>
         {/* first day needs a grid column */}
-        <DateBox
-          date={1}
-          gridColumn={monthYear.firstDOW + 1}
-          appointments={appointments[1]}
-        />
+        <DateBox date={1} gridColumn={monthYear.firstDOW + 1} appointments={appointments[1]} />
         {/* the rest of the days will follow */}
         {[...Array(monthYear.lastDate)].map((_, i) =>
-          i > 0 ? (
-            <DateBox key={i} date={i + 1} appointments={appointments[i + 1]} />
-          ) : null
+          i > 0 ? <DateBox key={i} date={i + 1} appointments={appointments[i + 1]} /> : null
         )}
       </Grid>
       <UserAppointments />
