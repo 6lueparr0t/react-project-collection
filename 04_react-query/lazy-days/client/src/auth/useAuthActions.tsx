@@ -31,13 +31,12 @@ export function useAuthActions(): UseAuth {
     password: string
   ): Promise<void> {
     try {
-      const { data, status }: AxiosResponse<AuthResponseType> =
-        await axiosInstance({
-          url: urlEndpoint,
-          method: "POST",
-          data: { email, password },
-          headers: { "Content-Type": "application/json" },
-        });
+      const { data, status }: AxiosResponse<AuthResponseType> = await axiosInstance({
+        url: urlEndpoint,
+        method: "POST",
+        data: { email, password },
+        headers: { "Content-Type": "application/json" },
+      });
 
       if (status === 400) {
         const title = "message" in data ? data.message : "Unauthorized";
@@ -57,8 +56,7 @@ export function useAuthActions(): UseAuth {
       }
     } catch (errorResponse) {
       const title =
-        axios.isAxiosError(errorResponse) &&
-        errorResponse?.response?.data?.message
+        axios.isAxiosError(errorResponse) && errorResponse?.response?.data?.message
           ? errorResponse?.response?.data?.message
           : SERVER_ERROR;
       toast({
