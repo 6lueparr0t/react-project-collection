@@ -26,7 +26,8 @@ export function useUser() {
   // call useQuery to update user data from server
   const { data: user } = useQuery({
     enabled: !!userId,
-    queryKey: generateUserKey(userId, userToken),
+    // eslint-disable-next-line @tanstack/query/exhaustive-deps
+    queryKey: [queryKeys.user, userId],
     queryFn: () => getUser(userId, userToken),
     staleTime: Infinity,
   });
@@ -34,7 +35,7 @@ export function useUser() {
   // meant to be called from useAuth
   function updateUser(newUser: User): void {
     // update the user in the query cache
-    queryClient.setQueryData(generateUserKey(newUser.id, newUser.token), newUser);
+    queryClient.setQueryData(generateUserKey(newUser.id), newUser);
   }
 
   // meant to be called from useAuth
