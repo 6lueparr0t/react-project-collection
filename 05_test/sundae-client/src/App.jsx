@@ -1,13 +1,16 @@
-import OrderEntry from "./pages/entry/OrderEntry";
-import SummaryForm from "./pages/summary/SummaryForm";
+import Container from "react-bootstrap/Container";
+import OrderEnrty from "./pages/entry/OrderEntry";
+import { OrderDetailsProvider } from "./contexts/OrderDetails";
 
 function App() {
   return (
-    <div>
-      <h1>Sundaes on Demand</h1>
-      <OrderEntry />
-      <SummaryForm />
-    </div>
+    <Container>
+      <OrderDetailsProvider>
+        {/* Summary Page and entry page need provider */}
+        <OrderEnrty />
+      </OrderDetailsProvider>
+      {/* confirmation page does not need provider */}
+    </Container>
   );
 }
 
