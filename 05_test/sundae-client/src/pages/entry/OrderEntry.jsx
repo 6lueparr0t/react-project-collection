@@ -9,7 +9,7 @@ export default function OrderEnrty() {
     <>
       <Options optionType="scoops" />
       <Options optionType="toppings" />
-      <h2>Grand Total: ${formatCurrency(totals["scoops"] + totals["toppings"])}</h2>
+      <h2>Grand Total: {formatCurrency(totals["scoops"] + totals["toppings"])}</h2>
     </>
   );
 }
