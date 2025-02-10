@@ -34,10 +34,10 @@ function App() {
     }
 
     loadWasmModule().then((wasm) => {
-      console.log(wasm.staticOne());
-      console.log(wasm.staticAdd(1, 2));
-      console.log(wasm.instanceTwo());
-      console.log(wasm.instanceSub(3.0, 1.0));
+      console.log("one", wasm.one());
+      console.log("add(1, 2)", wasm.add(1, 2));
+      console.log("two", wasm.two());
+      console.log("sub(3.0, 1.0)", wasm.sub(3.0, 1.0));
 
       const helloWorld = getString(wasm.memory, wasm.helloWorld());
       setMessage(helloWorld);

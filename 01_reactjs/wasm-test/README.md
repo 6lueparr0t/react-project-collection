@@ -5,5 +5,5 @@
 ## AssemblyScript Build
 
 ```bash
-npx asc my-module.ts --outFile my-module.wasm
+npx asc module.ts --outFile module.wasm
 ```
